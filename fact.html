@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="factApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="factController">
+    <h2>Factorial and Square Calculation</h2>
+    Enter a number:
+    <input type="number" ng-model="inputNumber">
+    <button ng-click="calculateFact()">Calculate Fact</button>
+    <button ng-click="calculateSquare()">Calculate Square</button>
+    <p ng-show="factResult !==undefined">Factorial Result:{{factResult}}</p>
+    <p ng-show="squareResult !==undefined">Square Result:{{factResult}}</p>
+</body>
+    <script>
+        var app=angular.module('factApp',[]);
+        app.controller('factController',function($scope){
+            $scope.calculateFact = function (){
+                if($scope.inputNumber >=0){
+                $scope.factResult = factorial($scope.inputNumber);
+                }
+                else{
+                    $scope.factResult='can not calculate factorial for negative number';
+                }
+            };
+function factorial(n){
+    if(n==0||n==1){
+        return 1;
+    }
+    else{
+        return n* factorial(n-1);
+    }
+}
+$scope.calculateSquare = function () {
+    $scope.SquareResult=$scope.inputNumber*$scope.inputNumber;
+};
+        }
+        );
+    </script>
+
+
+</html>
