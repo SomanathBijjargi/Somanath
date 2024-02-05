@@ -1,2 +1,4 @@
 Hey!!
-Welcome to git 
+Welcome to git
+Today is monday
+8th January 
