@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="crudapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.js"></script>
+</head>
+<body ng-controller="crudController">
+    <h1>user management</h1>
+    <!--- form for adding a new users-->
+    <form ng-submit="addusers()">Name
+        <input type="text" ng-model="name" requried>
+        <input type="number" ng-model="age" requried>
+        <br>
+        <button type="submit">add users</button>
+    </form>
+    <br>
+    <!-------table to display users information-->
+    <table>
+        <thred>
+            <tr>
+                <th>Name</th>
+                <th>age</th>
+                <th>action</th>
+            </tr>
+        </thred>
+        <tbody>
+            <tr ng-repeat="users in users">
+                <td>{{user.name}}</td>
+                <td>{{users.age}}</td>
+                <td>
+                    <button ng-click="edituser(user)">edit</button>
+                </td>
+        </tbody>
+    </table>
+</body>
+</html>
