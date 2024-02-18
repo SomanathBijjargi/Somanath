@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="cgpaApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="cgpaController">
+    <h2>Student Details</h2>
+    Student Name:
+    <input type="text" ng-model="name">
+    CGPA:
+    <input type="number" ng-model="cgpa" ng-min="1" ng-max="10">
+    <button ng-click="addStudent()">Add Student</button>
+    <ul>
+        <li ng-repeat="student in studentArray">
+           Name: {{student.name}}-CGPA:{{student.cgpa}}
+        </li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    </ul>
+</body>
+    <script>
+        var app= angular.module('cgpaApp',[]);
+        app.controller('cgpaController',function($scope){
+        $scope.studentArray =[];
+        $scope.addStudent = function(){
+            $scope.studentArray.push({name: $scope.name,cgpa : $scope.cgpa});
+            $scope.name="";
+            $scope.cgpsa="";
+
+        };
+        });
+    </script>
+
+</html>
